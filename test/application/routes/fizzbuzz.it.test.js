@@ -76,6 +76,19 @@ describe("API tests - fizzbuzz endpoint", () => {
       ]);
     });
 
+    it("it should return 400 - int1 is missing", async () => {
+      const res = await chai
+        .request(app)
+        .get("/fizzbuzz?int2=3&limit=10&str1=fizz&str2=buzz")
+        .set("content-type", "application/json")
+        .send();
+
+      expect(res.status).to.eql(400);
+      expect(res.body.message).to.eql(
+        "Error - int1 & int2 parameters are mandatory"
+      );
+    });
+
     it("it should return 400 - int1 is not an int", async () => {
       const res = await chai
         .request(app)
