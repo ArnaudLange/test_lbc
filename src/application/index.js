@@ -2,7 +2,7 @@ const express = require("express");
 const Logger = require("../domain/logger");
 const knexMiddleware = require("./middlewares/knex-middleware");
 
-// Import des routes
+// Import of routes
 const fizzBuzzRouter = require("./routes/fizzbuzz");
 const statisticsRouter = require("./routes/statistics");
 

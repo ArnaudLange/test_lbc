@@ -1,8 +1,8 @@
 CREATE SCHEMA IF NOT EXISTS fizzbuzz;
 
-------------------------
---- TABLE PRINCIPALE ---
-------------------------
+----------------------
+--- REQUESTS TABLE ---
+----------------------
 
 CREATE TABLE IF NOT EXISTS fizzbuzz.requests
 (
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS fizzbuzz.requests
 );
 
 ------------------------------------------------------
---- VUE POUR CALCULER LE NOMBRE DE HIT PAR REQUÊTE ---
+--- VIEW TO COMPUTE THE NUMBER OF HITS PER REQUEST ---
 ------------------------------------------------------
 
 CREATE OR REPLACE VIEW fizzbuzz.requests_hits

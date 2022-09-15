@@ -87,7 +87,7 @@ class FizzbuzzService {
     }
 
     if (dbResponse.length) {
-      // On peut ici se permettre de retourner les paramètres du premier élément étant donné que la vue postgres utilisée est configurée pour
+      // Here we can afford to return the parameters of the first element given that the postgres view used is configured for.
       return {
         int1: dbResponse[0].int1,
         int2: dbResponse[0].int2,
