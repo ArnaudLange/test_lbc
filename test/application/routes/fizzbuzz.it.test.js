@@ -140,5 +140,16 @@ describe("API tests - fizzbuzz endpoint", () => {
         "Error - limit parameter must be a positive integer"
       );
     });
+
+    it("it should return 400 - limit is missing", async () => {
+      const res = await chai
+        .request(app)
+        .get("/fizzbuzz?int1=2&int2=3&str1=fizz&str2=buzz")
+        .set("content-type", "application/json")
+        .send();
+
+      expect(res.status).to.eql(400);
+      expect(res.body.message).to.eql("Error - limit parameter is mandatory");
+    });
   });
 });
