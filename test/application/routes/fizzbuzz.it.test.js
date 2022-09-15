@@ -5,7 +5,6 @@ const chai = require("chai");
 const chaiHttp = require("chai-http");
 const expect = chai.expect;
 chai.use(chaiHttp);
-const sinon = require("sinon");
 
 describe("API tests - fizzbuzz endpoint", () => {
   const app = require("../../../src/application/index");
