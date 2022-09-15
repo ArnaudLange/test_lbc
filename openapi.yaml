@@ -1,0 +1,74 @@
+openapi: 3.0.3
+info:
+  title: Fizzbuzz API
+  description: Simple fizz-buzz api
+  contact:
+    email: langelier.arnaud@gmail.com
+  version: 1.0.0
+
+servers:
+  - url: "http://localhost:8080"
+    description: Dev (Local)
+
+paths:
+  /fizzbuzz/:
+    get:
+      summary: Compute a simple fizz-buzz results
+      operationId: computeFizzbuzz
+      parameters:
+        - name: int1
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: first integer to check multiples
+          example: 2
+        - name: int2
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: second integer to check multiples
+          example: 3
+        - name: limit
+          in: query
+          required: true
+          schema:
+            type: integer
+          description: size of the array of number to perform the fizzbuzz on
+          example: 10
+        - name: str1
+          in: query
+          schema:
+            type: string
+            default: "fizz"
+          description: first string to replace multiples with (fizz)
+          example: "fizz"
+        - name: str2
+          in: query
+          schema:
+            type: string
+            default: "buzz"
+          description: second string to replace multiples with (buzz)
+          example: "buzz"
+
+      responses:
+        "200":
+          description: Array of strings with fizz-buzz result
+          content:
+            application/json:
+              example:
+                - "1"
+                - "fizz"
+                - "buzz"
+                - "fizz"
+                - "5"
+                - "fizzbuzz"
+                - "7"
+                - "fizz"
+                - "buzz"
+                - "fizz"
+              schema:
+                type: array
+                items:
+                  type: string
