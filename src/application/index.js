@@ -1,5 +1,6 @@
 const express = require("express");
 const Logger = require("../domain/logger");
+const knexMiddleware = require("./middlewares/knex-middleware");
 
 // Import des routes
 const fizzBuzzRouter = require("./routes/fizzbuzz");
@@ -19,6 +20,9 @@ function logError(err, req, res, next) {
   next();
 }
 app.use(logError);
+
+// initialize db connection as app-wide variable
+app.use(knexMiddleware);
 
 // declare endpoints
 app.use("/fizzbuzz", fizzBuzzRouter);
