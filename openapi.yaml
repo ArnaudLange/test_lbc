@@ -72,3 +72,36 @@ paths:
                 type: array
                 items:
                   type: string
+
+  /statistics/:
+    get:
+      summary: Get the most used parameters on /fizzbuzz endpoint
+      operationId: retrieveMostWantedRequest
+
+      responses:
+        "200":
+          description: Body with most used parameters and number of times they were used
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  int1:
+                    type: integer
+                    example: 2
+                  int2:
+                    type: integer
+                    example: 3
+                  limit:
+                    type: integer
+                    example: 10
+                  str1:
+                    type: string
+                    example: fizz
+                  str2:
+                    type: string
+                    example: buzz
+                  hits:
+                    type: integer
+                    description: Number of times the request was done on the API
+                    example: 12
