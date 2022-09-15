@@ -8,7 +8,7 @@ chai.use(chaiHttp);
 const sinon = require("sinon");
 
 describe("API tests - fizzbuzz endpoint", () => {
-  const app = require("../../../../src/application/index");
+  const app = require("../../../src/application/index");
   describe("GET /fizzbuzz", () => {
     it("it should return 200 and list of strings from 1 to 10", async () => {
       const res = await chai
@@ -42,15 +42,15 @@ describe("API tests - fizzbuzz endpoint", () => {
       expect(res.status).to.eql(200);
       expect(res.body).to.deep.eql([
         "1",
-        "2",
+        "fizz",
         "buzz",
-        "4",
+        "fizz",
         "5",
-        "buzz",
+        "fizzbuzz",
         "7",
-        "8",
+        "fizz",
         "buzz",
-        "10",
+        "fizz",
       ]);
     });
 
@@ -64,15 +64,15 @@ describe("API tests - fizzbuzz endpoint", () => {
       expect(res.status).to.eql(200);
       expect(res.body).to.deep.eql([
         "1",
-        "2",
-        "3",
-        "4",
+        "fizz",
+        "buzz",
+        "fizz",
         "5",
         "fizzbuzz",
         "7",
-        "8",
-        "9",
-        "10",
+        "fizz",
+        "buzz",
+        "fizz",
       ]);
     });
 
@@ -84,9 +84,7 @@ describe("API tests - fizzbuzz endpoint", () => {
         .send();
 
       expect(res.status).to.eql(400);
-      expect(res.body.message).to.eql(
-        "Error - int1 & int2 parameters are mandatory"
-      );
+      expect(res.text).to.eql("Error - int1 & int2 parameters are mandatory");
     });
 
     it("it should return 400 - int1 is not an int", async () => {
@@ -97,7 +95,7 @@ describe("API tests - fizzbuzz endpoint", () => {
         .send();
 
       expect(res.status).to.eql(400);
-      expect(res.body.message).to.eql(
+      expect(res.text).to.eql(
         "Error - int1 & int2 parameters must be integers"
       );
     });
@@ -110,7 +108,7 @@ describe("API tests - fizzbuzz endpoint", () => {
         .send();
 
       expect(res.status).to.eql(400);
-      expect(res.body.message).to.eql(
+      expect(res.text).to.eql(
         "Error - int1 & int2 parameters must be integers"
       );
     });
@@ -123,7 +121,7 @@ describe("API tests - fizzbuzz endpoint", () => {
         .send();
 
       expect(res.status).to.eql(400);
-      expect(res.body.message).to.eql(
+      expect(res.text).to.eql(
         "Error - limit parameter must be a positive integer"
       );
     });
@@ -136,7 +134,7 @@ describe("API tests - fizzbuzz endpoint", () => {
         .send();
 
       expect(res.status).to.eql(400);
-      expect(res.body.message).to.eql(
+      expect(res.text).to.eql(
         "Error - limit parameter must be a positive integer"
       );
     });
@@ -149,7 +147,7 @@ describe("API tests - fizzbuzz endpoint", () => {
         .send();
 
       expect(res.status).to.eql(400);
-      expect(res.body.message).to.eql("Error - limit parameter is mandatory");
+      expect(res.text).to.eql("Error - limit parameter is mandatory");
     });
   });
 });
