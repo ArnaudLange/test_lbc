@@ -1,6 +1,9 @@
 const express = require("express");
 const winston = require("winston");
 
+// Import des routes
+const fizzBuzzRouter = require("./routes/fizzbuzz");
+
 const app = express();
 
 // setup logger
@@ -21,6 +24,9 @@ function logError(err, req, res, next) {
   next();
 }
 app.use(logError);
+
+// declare endpoints
+app.use("/fizzbuzz", fizzBuzzRouter);
 
 // catch 404 and return response
 app.use((req, res) => {
