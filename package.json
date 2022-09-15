@@ -1,0 +1,28 @@
+{
+  "name": "test_lbc",
+  "version": "1.0.0",
+  "description": "Technical test for Leboncoin - Implementing a fizz-buzz REST API",
+  "main": "src/application/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node src/application/index.js",
+    "pretest": "eslint .",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArnaudLange/test_lbc.git"
+  },
+  "author": "Arnaud Langelier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArnaudLange/test_lbc/issues"
+  },
+  "homepage": "https://github.com/ArnaudLange/test_lbc#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "winston": "^3.8.2"
+  }
+}

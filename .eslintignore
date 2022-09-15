@@ -1,0 +1,2 @@
+# Exclusion des fichiers de test de l'analyse d'eslint pour préserver la lisibilité des tests mocha
+test/**/*.test.js
