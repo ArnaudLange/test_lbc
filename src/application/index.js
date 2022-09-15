@@ -1,17 +1,12 @@
 const express = require("express");
-const winston = require("winston");
+const Logger = require("../domain/logger");
 
 // Import des routes
 const fizzBuzzRouter = require("./routes/fizzbuzz");
 
 const app = express();
 
-// setup logger
-const consoleTransport = new winston.transports.Console();
-const myWinstonOptions = {
-  transports: [consoleTransport],
-};
-const logger = new winston.createLogger(myWinstonOptions);
+const logger = Logger.setupLogger();
 
 function logRequest(req, res, next) {
   logger.info(req.url);

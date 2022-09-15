@@ -1,4 +1,12 @@
 class FizzbuzzValidator {
+  /**
+   * Takes the incoming request and validates query params
+   * int1, int2 and limit are mandatory
+   * int1 and int2 must be integers
+   * limit must be a positive integer
+   *
+   * @param req incoming request
+   */
   static validateRequest(req) {
     if (!req.query.int1 || !req.query.int2) {
       throw {

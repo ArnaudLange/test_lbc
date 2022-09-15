@@ -1,16 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const winston = require("winston");
+const Logger = require("../../domain/logger");
 const FizzbuzzService = require("../../domain/fizzbuzzService");
 const fizzbuzzValidator = require("../validator/fizzbuzzValidator");
 
-// setup logger
-const consoleTransport = new winston.transports.Console();
-const myWinstonOptions = {
-  transports: [consoleTransport],
-};
-const logger = new winston.createLogger(myWinstonOptions);
-
+const logger = Logger.setupLogger();
 const fizzbuzzService = new FizzbuzzService();
 
 router.get("/", async (req, res, next) => {
