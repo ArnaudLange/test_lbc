@@ -3,7 +3,7 @@ const initializeKnex = async (req, res, next) => {
     req.app.locals.knex = require("knex")({
       client: "pg",
       connection: {
-        host: "localhost",
+        host: process.env.POSTGRESQL_URI,
         user: "login",
         password: "password",
         database: "test-lbc",

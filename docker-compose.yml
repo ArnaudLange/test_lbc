@@ -25,6 +25,17 @@ services:
       - pg-fizzbuzz-data:/var/lib/postgresql/data/
       - ./_devops/database/createDatabaseTables.sql:/docker-entrypoint-initdb.d/1-schema.sql
 
+  test_lbc:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      POSTGRESQL_URI: postgres
+    depends_on:
+      - postgres
+
 # named volumes can be managed easier using docker-compose
 volumes:
   pg-fizzbuzz-data: {}
