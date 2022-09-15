@@ -1,0 +1,30 @@
+version: "3"
+
+###############
+# START:
+# docker-compose up -d
+#
+# STOP:
+# docker-compose rm --stop
+# docker volume rm test_lbc_pg-fizzbuzz-data
+###############
+
+services:
+  postgres:
+    image: postgres:9.6
+    # build: ./test/sql/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: test-lbc
+      POSTGRES_USER: login
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST_AUTH_METHOD: trust
+    # persist data even if container shuts down
+    volumes:
+      - pg-fizzbuzz-data:/var/lib/postgresql/data/
+      - ./_devops/database/createDatabaseTables.sql:/docker-entrypoint-initdb.d/1-schema.sql
+
+# named volumes can be managed easier using docker-compose
+volumes:
+  pg-fizzbuzz-data: {}
