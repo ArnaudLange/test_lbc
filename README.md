@@ -33,4 +33,3 @@ Dans les pistes d'améliration assez évidentes que je vois, il y a :
 
 - L'utilisation d'un autre moyen de stockage supportant un grand nombre d'entrées
 - Le passage des variables de connexion à la base de données dans un système permettant de ne pas les mettre en clair sur github :)
-- Des tests plus complets et totalement bouchonnés, notamment sur le endpoint /statistics
