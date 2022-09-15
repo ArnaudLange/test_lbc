@@ -1,6 +1,6 @@
 # test_lbc
 
-Test technique pour Leboncoin consistant à réaliser une API reste pour exécuter un fizz-buzz.
+Test technique pour Leboncoin consistant à réaliser une API REST pour exécuter un fizz-buzz.
 
 ## Run
 
