@@ -24,4 +24,4 @@ AS
     SELECT int1, int2, array_limit, str1, str2, count(*) hits
     FROM fizzbuzz.requests
     GROUP BY int1, int2, array_limit, str1, str2
-   	ORDER BY hits DESC;
+    ORDER BY hits DESC;
