@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node src/application/index.js",
     "pretest": "eslint .",
-    "test": "mocha 'test/**/*.js'"
+    "test": "mocha 'test/**/*.js' --exit"
   },
   "repository": {
     "type": "git",

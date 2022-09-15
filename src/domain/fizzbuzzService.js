@@ -64,6 +64,37 @@ class FizzbuzzService {
       logger.warn(`Database returned error: ${e}`);
     }
   }
+
+  async getMostWantedRequest() {
+    const sqlInfra = this._sqlInfra;
+    let dbResponse;
+    try {
+      dbResponse = await sqlInfra
+        .select("*")
+        .from("fizzbuzz.requests_hits as rh")
+        .then((rows) => rows);
+    } catch (e) {
+      logger.error(`Error while calling database: ${e}`);
+      throw {
+        status: 500,
+        message: `Error while calling database: ${e}`,
+      };
+    }
+
+    if (dbResponse.length) {
+      // On peut ici se permettre de retourner les paramètres du premier élément étant donné que la vue postgres utilisée est configurée pour
+      return {
+        int1: dbResponse[0].int1,
+        int2: dbResponse[0].int2,
+        limit: dbResponse[0].array_limit,
+        str1: dbResponse[0].str1,
+        str2: dbResponse[0].str2,
+        hits: dbResponse[0].hits,
+      };
+    }
+
+    return "No request yet.";
+  }
 }
 
 module.exports = FizzbuzzService;

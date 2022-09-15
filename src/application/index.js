@@ -4,6 +4,7 @@ const knexMiddleware = require("./middlewares/knex-middleware");
 
 // Import des routes
 const fizzBuzzRouter = require("./routes/fizzbuzz");
+const statisticsRouter = require("./routes/statistics");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(knexMiddleware);
 
 // declare endpoints
 app.use("/fizzbuzz", fizzBuzzRouter);
+app.use("/statistics", statisticsRouter);
 
 // catch 404 and return response
 app.use((req, res) => {
