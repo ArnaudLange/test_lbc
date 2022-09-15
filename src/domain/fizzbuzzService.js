@@ -65,6 +65,11 @@ class FizzbuzzService {
     }
   }
 
+  /**
+   * Call database to retrieve most requested parameters on /fizzbuzz endpoint
+   *
+   * @return {Object} Object containing every most requested parameter + number of times the request was asked
+   */
   async getMostWantedRequest() {
     const sqlInfra = this._sqlInfra;
     let dbResponse;
@@ -93,7 +98,7 @@ class FizzbuzzService {
       };
     }
 
-    return "No request yet.";
+    return { message: "No request yet." };
   }
 }
 
